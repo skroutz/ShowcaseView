@@ -26,6 +26,8 @@ interface AnimationFactory {
 
     void animateTargetToPoint(ShowcaseView showcaseView, Point point);
 
+    void animateTargetToPoint(LayoutShowcaseView showcaseView, Point point);
+
     interface AnimationStartListener {
         void onAnimationStart();
     }

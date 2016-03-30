@@ -77,4 +77,14 @@ class AnimatorAnimationFactory implements AnimationFactory {
         set.start();
     }
 
+    @Override
+    public void animateTargetToPoint(LayoutShowcaseView showcaseView, Point point) {
+        AnimatorSet set = new AnimatorSet();
+        ObjectAnimator xAnimator = ObjectAnimator.ofInt(showcaseView, "showcaseX", point.x);
+        ObjectAnimator yAnimator = ObjectAnimator.ofInt(showcaseView, "showcaseY", point.y);
+        set.playTogether(xAnimator, yAnimator);
+        set.setInterpolator(interpolator);
+        set.start();
+    }
+
 }

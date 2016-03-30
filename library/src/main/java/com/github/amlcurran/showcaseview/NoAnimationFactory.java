@@ -19,4 +19,9 @@ class NoAnimationFactory implements AnimationFactory {
     public void animateTargetToPoint(ShowcaseView showcaseView, Point point) {
         showcaseView.setShowcasePosition(point.x, point.y);
     }
+
+    @Override
+    public void animateTargetToPoint(LayoutShowcaseView showcaseView, final Point point) {
+        showcaseView.setShowcasePosition(point.x, point.y);
+    }
 }
