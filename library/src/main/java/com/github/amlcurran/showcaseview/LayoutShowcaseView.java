@@ -420,8 +420,8 @@ public class LayoutShowcaseView extends RelativeLayout implements View.OnTouchLi
 
     private static void insertShowcaseView(LayoutShowcaseView showcaseView, ViewGroup parent, int parentIndex) {
 
-        parent.addView(showcaseView, parentIndex);
         if (!showcaseView.hasShot()) {
+            parent.addView(showcaseView, parentIndex);
             showcaseView.show();
         } else {
             showcaseView.hideImmediate();
