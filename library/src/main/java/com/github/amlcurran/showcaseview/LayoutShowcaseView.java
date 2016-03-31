@@ -37,7 +37,7 @@ public class LayoutShowcaseView extends RelativeLayout implements View.OnTouchLi
     private int showcaseX = -1;
     private int showcaseY = -1;
     private float scaleMultiplier = 1f;
-    private int showcaseTargetRadius;
+    private float showcaseTargetRadius = 32.0f;
 
     // Animation items
     private long fadeInMillis;
@@ -81,8 +81,6 @@ public class LayoutShowcaseView extends RelativeLayout implements View.OnTouchLi
 
         setWillNotDraw(false);
         init();
-
-        showcaseTargetRadius = 32; // TODO - change to
     }
 
     private void init() {
@@ -362,7 +360,7 @@ public class LayoutShowcaseView extends RelativeLayout implements View.OnTouchLi
         return showcaseTargetRadius;
     }
 
-    public void setShowcaseTargetRadius(int showcaseTargetRadius) {
+    public void setShowcaseTargetRadius(float showcaseTargetRadius) {
 
         this.showcaseTargetRadius = showcaseTargetRadius;
     }
@@ -673,9 +671,18 @@ public class LayoutShowcaseView extends RelativeLayout implements View.OnTouchLi
         /**
          * Specifies the radius of the showcase target to be drawn
          */
-        public Builder setShowcaseTargetRadius(int showcaseTargetRadius) {
+        public Builder setShowcaseTargetRadius(float showcaseTargetRadius) {
 
             showcaseView.setShowcaseTargetRadius(showcaseTargetRadius);
+            return this;
+        }
+
+        /**
+         * Specifies the dimension holding the radius of the showcase target to be drawn
+         */
+        public Builder setShowcaseTargetRadius(int showcaseTargetRadiusId) {
+
+            showcaseView.setShowcaseTargetRadius(activity.getResources().getDimension(showcaseTargetRadiusId));
             return this;
         }
 
